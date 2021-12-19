@@ -6,7 +6,7 @@ import { List } from 'src/app/shared/List';
   providedIn: 'root',
 })
 export class ListsService {
-  listId = new BehaviorSubject<number | string | null>(null)
+  listId = new BehaviorSubject<number | string | null>(0)
   listObservable = this.listId.asObservable()
   myList: List[] = [
     { _id: 0, title: 'List Item 1' },

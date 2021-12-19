@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
   listId:number|string|null = null;
   ngOnInit(): void {
     this.list.listObservable.subscribe(res=>{
-      console.log(res)
       this.listId = res
     })
   }

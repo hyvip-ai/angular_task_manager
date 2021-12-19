@@ -6,9 +6,10 @@ import { Task } from 'src/app/shared/Task';
 })
 export class TasksService {
   myTasks: Task[] = [
-    { _id: 0, _listId: 0, title: 'This is My first Task', completed: false },
-    { _id: 1, _listId: 1, title: 'This is My first Task', completed: false },
-    { _id: 2, _listId: 2, title: 'This is My first Task', completed: false },
+    { _id: 0, _listId: 0, title: 'This rask belongs to frist list', completed: false },
+    { _id: 3, _listId: 0, title: 'This rask belongs to frist list', completed: false },
+    { _id: 1, _listId: 1, title: 'This task belongs to second lkist', completed: false },
+    { _id: 2, _listId: 2, title: 'This task belongs to third list', completed: false },
   ];
   constructor() {}
   addTask(item:Task){
@@ -23,5 +24,17 @@ export class TasksService {
       }
     }
     this.myTasks.splice(index,1);
+  }
+  getTasks(listId:string|number){
+    const myFilteredTasks = this.myTasks.filter(item=>{return item._listId === listId}) 
+    return myFilteredTasks
+  }
+  toogleCompletion(id:number|string){
+    for(let item of this.myTasks){
+      if(item._id===id){
+        item.completed = !item.completed;
+        break;
+      }
+    }
   }
 }

@@ -1,7 +1,8 @@
 <div class="lists">
   <div class="heading">
     <div>
-      <h1>TASKS</h1>
+      <h1 *ngIf="listId===null">TASKS</h1>
+      <h1 *ngIf="listId!==null">{{listName}}</h1>
     </div>
     <div>
       <button
@@ -13,11 +14,14 @@
       </button>
     </div>
   </div>
-  <div class="tasks">
-      My Tasks
+  <div class="tasks" *ngIf="listId!==null">
+      <app-list-item *ngFor="let item of myTasks" [task]="item"></app-list-item>
+  </div>
+  <div class="tasks" *ngIf="listId===null">
+      <h2>Choose A List to view the tasks</h2>
   </div>
   <div class="addtasks">
-    <button mat-mini-fab color="warn">
+    <button mat-mini-fab color="warn" (click)="addTask()">
       <mat-icon>add</mat-icon>
     </button>
   </div>

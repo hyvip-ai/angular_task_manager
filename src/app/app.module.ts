@@ -12,6 +12,8 @@ import { TaskItemComponent } from './components/task-left/task-item/task-item.co
 import { HomeComponent } from './pages/home/home.component';
 import { AddlistComponent } from './pages/addlist/addlist.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListItemComponent } from './components/task-right/list-item/list-item.component';
+import { AddTaskComponent } from './pages/add-task/add-task.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TaskRightComponent,
     TaskItemComponent,
     HomeComponent,
-    AddlistComponent
+    AddlistComponent,
+    ListItemComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,

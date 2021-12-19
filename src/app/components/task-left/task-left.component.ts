@@ -6,16 +6,25 @@ import { List } from 'src/app/shared/List';
 @Component({
   selector: 'app-task-left',
   templateUrl: './task-left.component.html',
-  styleUrls: ['./task-left.component.css']
+  styleUrls: ['./task-left.component.css'],
 })
 export class TaskLeftComponent implements OnInit {
-  myLists:List[] = []
-  constructor(private listService:ListsService,private router:Router) { }
+  myLists: List[] = [];
+  filteredList: List[] = [];
+  filterData: string = '';
+  constructor(private listService: ListsService, private router: Router) {}
 
   ngOnInit(): void {
-   this.myLists = this.listService.getList()
+    this.myLists = this.listService.getList();
+    this.filteredList = [...this.myLists];
   }
-  addList(){
-    this.router.navigate(["/addList"]);
+  addList() {
+    this.router.navigate(['/addList']);
+  }
+  filterList() {
+    this.filteredList = this.myLists.filter((item) => {
+      return item.title.toLowerCase().includes(this.filterData.toLowerCase());
+    });
+    console.log(this.filteredList);
   }
 }

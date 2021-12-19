@@ -1,0 +1,16 @@
+.task_card{
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.task_card p{
+    margin-bottom: 0;
+}
+.task_title_completed{
+    text-decoration: line-through;
+}

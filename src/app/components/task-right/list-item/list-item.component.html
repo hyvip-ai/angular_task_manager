@@ -1,0 +1,7 @@
+<div class="task_card" (click)="toogleCompletion()">
+  <p class="{{task.completed?'task_title_completed':'task_title'}}">{{ task.title }}</p>
+  <div class="button_group">
+    <button mat-icon-button color="accent"><mat-icon>edit</mat-icon></button>
+    <button mat-icon-button color="accent"><mat-icon>delete</mat-icon></button>
+  </div>
+</div>

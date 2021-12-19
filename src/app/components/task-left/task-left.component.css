@@ -23,6 +23,9 @@
     overflow: auto;
     position: relative;
 }
+.tasklists input{
+    margin-bottom: 1.5rem;
+}
 .tasklists::after{
     content: "";
     display: block;

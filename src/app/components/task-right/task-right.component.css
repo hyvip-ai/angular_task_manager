@@ -18,6 +18,8 @@
 
 .tasks{
     grid-area: tasks;
+    width: 80%;
+    margin: 0px auto;
 }
 .addtasks{
     grid-area: addtasks;
