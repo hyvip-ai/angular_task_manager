@@ -6,25 +6,43 @@ import { v4 as uuid } from 'uuid';
   providedIn: 'root',
 })
 export class ListsService {
-  listId = new BehaviorSubject<string>('')
-  listObservable = this.listId.asObservable()
-  myList: List[] = [
-    // { _id: "49f0d4ff-760b-4d04-99a4-1810c97037f1", title: 'List Item 1' },
-    // { _id: "ae9dab30-b5b9-40ad-8391-9a29606f697b", title: 'List Item 2' },
-    // { _id: "d10c3d24-48b4-47ee-92d7-e9b9cf229374", title: 'List Item 3' },
- 
-  ];
+  listId = new BehaviorSubject<string>('');
+  listObservable = this.listId.asObservable();
+  showModal = new BehaviorSubject<boolean>(false);
+  showModalObservables = this.showModal.asObservable();
+  myList: List[] = [];
+  myListSubject = new BehaviorSubject<List[]>([...this.myList]);
+  myListObservble = this.myListSubject.asObservable();
   constructor() {}
-  getList(): List[] {
-    return this.myList;
-  }
+
   addToList(item: string): void {
     this.myList.push({ _id: uuid(), title: item });
+    this.myListSubject.next(this.myList);
+    localStorage.setItem('lists', JSON.stringify(this.myListSubject.value));
   }
-  deleteList(index: number): void {
-    this.myList.splice(index, 1);
+  deleteList(): void {
+    this.showModal.next(false);
+    for (let i = 0; i < this.myListSubject.value.length; i++) {
+      if (this.myListSubject.value[i]._id === this.listId.value) {
+        this.listId.next('');
+        let arr = this.myListSubject.value;
+        arr.splice(i, 1);
+        console.log(arr);
+        this.myListSubject.next(arr);
+        break;
+      }
+    }
+
+    localStorage.setItem('lists', JSON.stringify(this.myListSubject.value));
   }
-  changeListId(id:string){
-      this.listId.next(id)
+  changeListId(id: string) {
+    this.listId.next(id);
+  }
+  togglModal() {
+    this.showModal.next(!this.showModal.value);
+  }
+  setDeafultTasks(data: string) {
+    this.myList = [...JSON.parse(data)]
+    this.myListSubject.next([...JSON.parse(data)]);
   }
 }

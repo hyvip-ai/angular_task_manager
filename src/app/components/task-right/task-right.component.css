@@ -18,8 +18,13 @@
 
 .tasks{
     grid-area: tasks;
-    width: 80%;
+    width: 90%;
     margin: 0px auto;
+    overflow-y: auto;
+    overflow-x: visible;
+}
+::-webkit-scrollbar{
+    display: none;
 }
 .tasks input{
     margin-bottom: 1.5rem;

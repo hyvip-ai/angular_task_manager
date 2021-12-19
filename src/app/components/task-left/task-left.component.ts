@@ -15,8 +15,11 @@ export class TaskLeftComponent implements OnInit {
   constructor(private listService: ListsService, private router: Router) {}
 
   ngOnInit(): void {
-    this.myLists = this.listService.getList();
+   this.listService.myListObservble.subscribe(res=>{
+     this.myLists = [...res]
     this.filteredList = [...this.myLists];
+
+   })
   }
   addList() {
     this.router.navigate(['/addList']);

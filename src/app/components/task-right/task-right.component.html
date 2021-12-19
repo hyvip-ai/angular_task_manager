@@ -4,11 +4,12 @@
       <h1 *ngIf="!listId">TASKS</h1>
       <h1 *ngIf="listId">{{listName}}</h1>
     </div>
-    <div>
+    <div *ngIf="listId">
       <button
         mat-icon-button
         color="warn"
         aria-label="Example icon button with a vertical three dot icon"
+        (click)="showModal()"
       >
         <mat-icon>settings</mat-icon>
       </button>

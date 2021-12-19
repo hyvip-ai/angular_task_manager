@@ -14,6 +14,7 @@ import { AddlistComponent } from './pages/addlist/addlist.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListItemComponent } from './components/task-right/list-item/list-item.component';
 import { AddTaskComponent } from './pages/add-task/add-task.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddTaskComponent } from './pages/add-task/add-task.component';
     HomeComponent,
     AddlistComponent,
     ListItemComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

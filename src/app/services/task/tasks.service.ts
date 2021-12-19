@@ -7,12 +7,9 @@ import { v4 as uuid } from 'uuid';
 })
 export class TasksService {
   myTasks: Task[] = [
-    { _id: "31ad0259-609a-458f-b519-38b19ca6d3f8", _listId: "49f0d4ff-760b-4d04-99a4-1810c97037f1", title: 'This rask belongs to frist list', completed: false },
-    { _id: "cc8b2a8c-dc7d-4222-924f-2fe20ec668bf", _listId: "49f0d4ff-760b-4d04-99a4-1810c97037f1", title: 'This rask belongs to frist list second task lzkncjkzdc zkjcbkjdckjdzbckj', completed: false },
-    { _id: "00bc560e-173d-41f9-909e-1a90a28554d6", _listId: "ae9dab30-b5b9-40ad-8391-9a29606f697b", title: 'This task belongs to second lkist', completed: false },
-    { _id: "524fae26-1459-4563-a00b-573e9f3be082", _listId: "d10c3d24-48b4-47ee-92d7-e9b9cf229374", title: 'This task belongs to third list', completed: false },
+
   ];
-  myTaskSubject = new BehaviorSubject<Task[]>(this.myTasks)
+  myTaskSubject = new BehaviorSubject<Task[]>([...this.myTasks])
   myTaskObservables = this.myTaskSubject.asObservable()
   constructor() {}
   addTask(title:string,listId:string){
@@ -23,6 +20,8 @@ export class TasksService {
       completed:false
     }
     this.myTasks.push(task)
+    this.myTaskSubject.next(this.myTasks)
+    localStorage.setItem('tasks',JSON.stringify(this.myTaskSubject.value))
   }
   deleteTask(id:string){
     let index = 0
@@ -36,6 +35,8 @@ export class TasksService {
     console.log(index)
     this.myTasks.splice(index,1);
     this.myTaskSubject.next(this.myTasks)
+    localStorage.setItem('tasks',JSON.stringify(this.myTaskSubject.value))
+
   }
 
   toogleCompletion(id:string){
@@ -45,5 +46,9 @@ export class TasksService {
         break;
       }
     }
+  }
+  setDeafultTasks(data:string){
+    this.myTasks = [...JSON.parse(data)]
+    this.myTaskSubject.next([...JSON.parse(data)])
   }
 }

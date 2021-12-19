@@ -30,15 +30,24 @@ export class TaskRightComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (this.listId) {
       this.task.myTaskObservables.subscribe((res) => {
-        console.log(res)
-        console.log(this.listId)
+        console.log(res);
+        console.log(this.listId);
         this.myTasks = res;
-        this.filteredTasks = this.myTasks.filter(item=>{return item._listId === this.listId})
-        console.log(this.filteredTasks) 
-        this.myLists = this.list.getList()
-        this.listName = this.myLists.filter((item) => {
-          return item._id === this.listId;
-        })[0].title;
+        this.filteredTasks = this.myTasks.filter((item) => {
+          return item._listId === this.listId;
+        });
+        console.log(this.filteredTasks);
+        this.list.myListObservble.subscribe((res) => {
+          console.log("Before If")
+          if(this.listId){
+          console.log("after If")
+            console.log("listId",this.listId)
+            this.myLists = [...res];
+          this.listName = this.myLists.filter((item) => {
+            return item._id === this.listId;
+          })[0]?.title;
+          }
+        });
       });
     }
   }
@@ -53,5 +62,8 @@ export class TaskRightComponent implements OnInit, OnChanges {
       return item.title.toLowerCase().includes(this.searchData.toLowerCase());
     });
     console.log(this.filteredTasks);
+  }
+  showModal() {
+    this.list.togglModal();
   }
 }
