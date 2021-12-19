@@ -1,13 +1,13 @@
 <div class="parent">
     <form class="example-form">
-      <h1>Create New List</h1>
+      <h1>Edit List</h1>
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Task Name</mat-label>
-        <input matInput placeholder="Enter Task Name" name="listName"/>
+        <mat-label>List Name</mat-label>
+        <input matInput placeholder="Enter Task Name" name="listName" [(ngModel)]="listName"/>
       </mat-form-field>
       <div class="button-group">
-        <button mat-stroked-button>Cancel</button>
-        <button mat-flat-button color="warn">+ New Task</button>
+        <button mat-stroked-button (click)="goBack()">Cancel</button>
+        <button mat-flat-button color="warn" (click)="editListName()">Edit List</button>
       </div>
     </form>
   </div>

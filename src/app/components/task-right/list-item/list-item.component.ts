@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TasksService } from 'src/app/services/task/tasks.service';
 import { Task } from 'src/app/shared/Task';
 
@@ -9,7 +10,7 @@ import { Task } from 'src/app/shared/Task';
 })
 export class ListItemComponent implements OnInit {
 
-  constructor(private taskService:TasksService) { }
+  constructor(private taskService:TasksService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -26,5 +27,8 @@ export class ListItemComponent implements OnInit {
   deleteTask(){
     console.log(this.task._id)
     this.taskService.deleteTask(this.task._id)
+  }
+  editTask(){
+    this.router.navigate([`/editTask/${this.task._id}`])
   }
 }

@@ -48,10 +48,39 @@ export class TasksService {
       }
     }
     this.myTaskSubject.next(this.myTasks)
-
+    localStorage.setItem('tasks',JSON.stringify(this.myTaskSubject.value))
   }
   setDeafultTasks(data:string){
     this.myTasks = [...JSON.parse(data)]
     this.myTaskSubject.next([...JSON.parse(data)])
+  }
+  editTask(newTask:string,id:string){
+    for(let item of this.myTasks){
+      if(item._id === id){
+        item.title = newTask
+        break
+      }
+    }
+    this.myTaskSubject.next(this.myTasks)
+    localStorage.setItem('tasks',JSON.stringify(this.myTaskSubject.value))
+
+  }
+  getTaskTitle(id:string){
+    let title:string =''
+    console.log(this.myTaskSubject.value  )
+    for(let item of this.myTaskSubject.value){
+      if(item._id === id){
+        console.log("inside if")
+        title = item.title
+        break
+      }
+    }
+    return title
+  }
+  deleteTasksForaList(listId:string){
+    this.myTasks = this.myTasks.filter(item=>{return item._listId!==listId});
+    this.myTaskSubject.next(this.myTasks)
+    localStorage.setItem('tasks',JSON.stringify(this.myTaskSubject.value))
+
   }
 }

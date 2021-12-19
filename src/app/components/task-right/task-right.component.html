@@ -2,7 +2,7 @@
   <div class="heading">
     <div>
       <h1 *ngIf="!listId">TASKS</h1>
-      <h1 *ngIf="listId">{{listName}}</h1>
+      <h1 *ngIf="listId">{{ listName }}</h1>
     </div>
     <div *ngIf="listId">
       <button
@@ -16,11 +16,19 @@
     </div>
   </div>
   <div class="tasks" *ngIf="listId">
-    <input type="text" placeholder="search Tasks ....." [(ngModel)]="searchData" (input)="filterTasks()">
-      <app-list-item *ngFor="let item of filteredTasks" [task]="item"></app-list-item>
+    <input
+      type="text"
+      placeholder="search Tasks ....."
+      [(ngModel)]="searchData"
+      (input)="filterTasks()"
+    />
+    <app-list-item
+      *ngFor="let item of filteredTasks"
+      [task]="item"
+    ></app-list-item>
   </div>
   <div class="tasks" *ngIf="!listId">
-      <h2>Choose A List to view the tasks</h2>
+    <h2>Choose A List to view the tasks</h2>
   </div>
   <div class="addtasks" *ngIf="listId">
     <button mat-mini-fab color="warn" (click)="addTask()">
