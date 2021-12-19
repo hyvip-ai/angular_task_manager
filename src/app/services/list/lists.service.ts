@@ -9,9 +9,9 @@ export class ListsService {
   listId = new BehaviorSubject<string>('')
   listObservable = this.listId.asObservable()
   myList: List[] = [
-    { _id: "49f0d4ff-760b-4d04-99a4-1810c97037f1", title: 'List Item 1' },
-    { _id: "ae9dab30-b5b9-40ad-8391-9a29606f697b", title: 'List Item 2' },
-    { _id: "d10c3d24-48b4-47ee-92d7-e9b9cf229374", title: 'List Item 3' },
+    // { _id: "49f0d4ff-760b-4d04-99a4-1810c97037f1", title: 'List Item 1' },
+    // { _id: "ae9dab30-b5b9-40ad-8391-9a29606f697b", title: 'List Item 2' },
+    // { _id: "d10c3d24-48b4-47ee-92d7-e9b9cf229374", title: 'List Item 3' },
  
   ];
   constructor() {}

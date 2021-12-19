@@ -1,8 +1,11 @@
 <div class="tasks">
     <div class="heading"><h1>LISTS</h1></div>
-    <div class="tasklists">
+    <div class="tasklists" *ngIf="filteredList.length">
         <input type="text" [(ngModel)]="filterData" (input)="filterList()" placeholder="Search List ...">
         <app-task-item *ngFor="let item of filteredList" [List]='item'></app-task-item>
+    </div>
+    <div class="tasklists" *ngIf="!filteredList.length">
+        <h3>Add New Lists</h3>
     </div>
     <div class="addlist">
         <button (click)="addList()" mat-flat-button color="warn">+ New List</button>

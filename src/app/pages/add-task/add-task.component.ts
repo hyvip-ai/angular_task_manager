@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TasksService } from 'src/app/services/task/tasks.service';
 
 @Component({
   selector: 'app-add-task',
@@ -7,14 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTaskComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private aroute:ActivatedRoute,private router:Router,private task:TasksService) { }
+  taskTitle:string=''
+  listId:string=''
   ngOnInit(): void {
+   this.listId = this.aroute.snapshot.params.listID
   }
   goBack(){
-
+    this.router.navigate(["/home"])
   }
   addTask(){
-    
+    console.log(this.taskTitle)
+    this.task.addTask(this.taskTitle,this.listId)
+    this.router.navigate(["/home"])
   }
 }
