@@ -3,11 +3,11 @@
       <h1>Create New Task</h1>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Task Name</mat-label>
-        <input matInput placeholder="Enter Task Name" name="listName" [(ngModel)]="taskTitle"/>
+        <input matInput placeholder="Enter Task Name" name="listName"/>
       </mat-form-field>
       <div class="button-group">
-        <button mat-stroked-button (click)="goBack()">Cancel</button>
-        <button mat-flat-button color="warn" (click)="addTask()">+ New Task</button>
+        <button mat-stroked-button>Cancel</button>
+        <button mat-flat-button color="warn">+ New Task</button>
       </div>
     </form>
   </div>

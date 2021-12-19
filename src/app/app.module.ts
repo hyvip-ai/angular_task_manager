@@ -15,6 +15,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListItemComponent } from './components/task-right/list-item/list-item.component';
 import { AddTaskComponent } from './pages/add-task/add-task.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { EditListNameComponent } from './pages/edit-list-name/edit-list-name.component';
+import { EdittaskNameComponent } from './pages/edittask-name/edittask-name.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { ModalComponent } from './components/modal/modal.component';
     AddlistComponent,
     ListItemComponent,
     AddTaskComponent,
-    ModalComponent
+    ModalComponent,
+    EditListNameComponent,
+    EdittaskNameComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
