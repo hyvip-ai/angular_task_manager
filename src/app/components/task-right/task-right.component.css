@@ -1,0 +1,28 @@
+.lists{
+    display: grid;
+    grid-template-areas: 
+    'heading'
+    'tasks'
+    'addtasks';
+    grid-template-rows: 8rem 1fr 8rem;
+    grid-template-columns: 1fr;
+    height: 100%;
+}
+.heading{
+    grid-area: heading;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2.5rem;
+}
+
+.tasks{
+    grid-area: tasks;
+}
+.addtasks{
+    grid-area: addtasks;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 2.5rem;
+}

@@ -1,0 +1,9 @@
+<div class="tasks">
+    <div class="heading"><h1>LISTS</h1></div>
+    <div class="tasklists">
+        <app-task-item *ngFor="let item of myLists" [List]='item'></app-task-item>
+    </div>
+    <div class="addlist">
+        <button (click)="addList()" mat-flat-button color="warn">+ New List</button>
+    </div>
+</div>
