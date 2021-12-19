@@ -40,12 +40,15 @@ export class TasksService {
   }
 
   toogleCompletion(id:string){
+    console.log(id)
     for(let item of this.myTasks){
       if(item._id===id){
         item.completed = !item.completed;
         break;
       }
     }
+    this.myTaskSubject.next(this.myTasks)
+
   }
   setDeafultTasks(data:string){
     this.myTasks = [...JSON.parse(data)]
