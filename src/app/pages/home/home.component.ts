@@ -9,7 +9,7 @@ import { ListsService } from 'src/app/services/list/lists.service';
 export class HomeComponent implements OnInit {
 
   constructor(private list:ListsService) { }
-  listId:number|string|null = null;
+  listId:string = '';
   ngOnInit(): void {
     this.list.listObservable.subscribe(res=>{
       this.listId = res

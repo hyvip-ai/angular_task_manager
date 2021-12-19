@@ -7,9 +7,16 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .task_card p{
     margin-bottom: 0;
+    width: 70%;
+}
+.task_card .button_group{
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
 }
 .task_title_completed{
     text-decoration: line-through;

@@ -21,6 +21,9 @@
     width: 80%;
     margin: 0px auto;
 }
+.tasks input{
+    margin-bottom: 1.5rem;
+}
 .addtasks{
     grid-area: addtasks;
     display: flex;

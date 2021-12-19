@@ -1,4 +1,4 @@
 export interface List{
-    _id:string|number,
+    _id:string,
     title:string
 }

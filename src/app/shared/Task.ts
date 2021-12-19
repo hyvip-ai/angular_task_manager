@@ -1,6 +1,6 @@
 export interface Task{
-    _id:string|number,
-    _listId:string|number,
+    _id:string,
+    _listId:string,
     title:string,
     completed:boolean
 }

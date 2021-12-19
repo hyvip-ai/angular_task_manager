@@ -14,8 +14,8 @@ export class TaskItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  @Input() List:List={_id:0,title:''}
-  chnageTaskView(id:number|string){
+  @Input() List:List={_id:'',title:''}
+  chnageTaskView(id:string){
     this.list.changeListId(id)
   }
 }

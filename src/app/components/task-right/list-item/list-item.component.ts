@@ -14,13 +14,17 @@ export class ListItemComponent implements OnInit {
   ngOnInit(): void {
   }
   @Input() task:Task ={
-    _id:0,
-    _listId:0,
+    _id:'',
+    _listId:'',
     title:"",
     completed:false
   }
   toogleCompletion(){
     console.log(this.task._id)
     this.taskService.toogleCompletion(this.task._id)
+  }
+  deleteTask(){
+    console.log(this.task._id)
+    this.taskService.deleteTask(this.task._id)
   }
 }

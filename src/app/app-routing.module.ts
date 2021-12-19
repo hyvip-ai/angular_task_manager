@@ -15,7 +15,7 @@ const routes: Routes = [
     path:'addList',component:AddlistComponent
   },
   {
-    path:'addTask',component:AddTaskComponent
+    path:':listID/addTask',component:AddTaskComponent
   }
 ];
 
