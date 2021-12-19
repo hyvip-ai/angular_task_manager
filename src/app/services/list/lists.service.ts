@@ -52,6 +52,7 @@ export class ListsService {
         item.title = listName
       }
     }
+    this.showModal.next(false)
     this.myListSubject.next(this.myList)
     localStorage.setItem('lists', JSON.stringify(this.myListSubject.value));
   }
